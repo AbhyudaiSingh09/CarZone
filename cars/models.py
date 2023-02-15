@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+#from multiselectedfield import MultiselectField 
+#from ckeditor.fields import RickTextField
 
 # Create your models here.
 class car(models.Model):
@@ -93,7 +95,7 @@ class car(models.Model):
     state = models.CharField(choices=state_choice,max_length=100)
     city = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
-    modle = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
     year = models.IntegerField(('year'), choices=year_choice)
     condition = models.CharField(max_length=100)
     price=models.IntegerField()
@@ -117,3 +119,6 @@ class car(models.Model):
     no_of_owners = models.CharField(max_length=100)
     is_featured = models.BooleanField(default= False)
     created_date = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.car_title
